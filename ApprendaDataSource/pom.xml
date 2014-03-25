@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.apprenda</groupId>
+    <artifactId>javautils-datasource</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+    
+    
+    <distributionManagement>
+        <repository>
+            <id>apprenda-github-releases</id>
+            <name>Apprenda Public Releases</name>
+            <url>git:releases://git@github.com:Apprenda/mvn-repo.git</url>
+        </repository>
+        <snapshotRepository>
+            <id>apprenda-github-snapshots</id>
+            <name>Apprenda Public Snapshots</name>
+            <url>git:snapshots://git@github.com:Apprenda/mvn-repo.git</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <build>
+        <extensions>
+            <extension>
+                <groupId>ar.com.synergian</groupId>
+                <artifactId>wagon-git</artifactId>
+                <version>0.2.3</version>                
+            </extension>
+        </extensions>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.apprenda.framework</groupId>
+            <artifactId>guestapp-api</artifactId>
+            <version>5.0.2-Release</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jdbc</artifactId>
+            <version>7.0.42</version>
+        </dependency>
+    </dependencies>
+    
+    <repositories>
+        <repository>
+            <id>apprenda-public</id>
+            <name>Apprenda Public</name>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <!-- 
+               distributionManagement url was
+               <url>git:your-branch://git@github.com:yourgithubusername/your-github-repo.git</url>
+            -->
+            <url>https://raw.github.com/Apprenda/mvn-repo/releases</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>synergian-repo</id>
+            <url>https://raw.github.com/synergian/wagon-git/releases</url>
+        </pluginRepository>
+
+    </pluginRepositories>
+</project>
